@@ -1,0 +1,20 @@
+name: PR check finished
+
+on:
+  check_suite:
+    types: [completed]
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - master
+
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    if:
+    steps:
+      - name: Echo
+        run: echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
