@@ -1,14 +1,13 @@
 name: PR check finished
 
 on:
-  check_run:
+  check_suite:
     types: [completed]
 
 
 jobs:
-  echo:
+  check_suite:
     runs-on: ubuntu-latest
-    if:
     steps:
       - name: Echo
         run: echo "$GITHUB_CONTEXT"
