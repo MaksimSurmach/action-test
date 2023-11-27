@@ -1,0 +1,17 @@
+name: master check to auto merge
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+    develop_check:
+        runs-on: ubuntu-latest
+        # run if check suite is completed
+#        if: github.event.action == 'completed'
+        steps:
+          - name: Echo
+            run: echo "$GITHUB_CONTEXT"
+            env:
+              GITHUB_CONTEXT: ${{ toJson(github) }}
