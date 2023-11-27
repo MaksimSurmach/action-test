@@ -1,0 +1,18 @@
+name: add comment to PR
+
+on:
+  issue_comment:
+    types: [created, edited, deleted]
+jobs:
+  job01:
+    if: contains(github.event.comment.html_url, '/pull/')    # check if the comments come from pull request, exclude those from issue.
+    runs-on: [ubuntu-latest]
+    steps:
+      - run: |
+          echo A comment on PR $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+      - name: github
+        run: echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
