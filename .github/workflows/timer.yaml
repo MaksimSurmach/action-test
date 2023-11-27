@@ -4,10 +4,12 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
-      - *
+      - develop
+      - master
+      - main
 
 jobs:
-  echo:
+  sleep:
     runs-on: ubuntu-latest
     steps:
       - name: wait 1 minutes

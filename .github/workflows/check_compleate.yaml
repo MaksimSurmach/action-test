@@ -1,12 +1,8 @@
 name: PR check finished
 
 on:
-  check_suite:
+  check_run:
     types: [completed]
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches:
-      - master
 
 
 jobs:
