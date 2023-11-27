@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  echo:
+  sleep:
     runs-on: ubuntu-latest
     steps:
       - name: wait 1 minutes
