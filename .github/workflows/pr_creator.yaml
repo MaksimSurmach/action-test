@@ -10,6 +10,8 @@ on:
 jobs:
   echo:
     runs-on: ubuntu-latest
+    # from branch autodeploy/* to branch master
+    if: ${{ github.head_ref == 'autodeploy/*' && github.base_ref == 'master' }}
     steps:
       - name: Echo
         run: echo "$GITHUB_CONTEXT"
